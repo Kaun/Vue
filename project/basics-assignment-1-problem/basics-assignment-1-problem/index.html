@@ -9,18 +9,19 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue@next" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
-    <header>
-      <h1>Vue Course Goals </h1>
-    </header>
-    <section id="user-goal">
-      <h2>My Course Goal</h2>
-      <p>{{ getGoal() }}</p>
-      <p>{{ getGoal() }}</p>
-      <p><a v-bind:href="linkTest" target="_blank">Site google</a></p>
+    <section id="assignment">
+      <h2>{{myName}}</h2>
+      <p>{{myAge}}</p>
+      <p>{{calculateAgeIn5()}}</p>
+      <p>{{randomNum()}}</p>
+      <div>
+        <img v-bind:src="imgURL" />
+      </div>
+      <input type="text" v-bind:value= "myName" />
     </section>
   </body>
 </html>

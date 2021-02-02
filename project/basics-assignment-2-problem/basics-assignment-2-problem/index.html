@@ -9,18 +9,26 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue@next" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
     <header>
-      <h1>Vue Course Goals </h1>
+      <h1>Events</h1>
     </header>
-    <section id="user-goal">
-      <h2>My Course Goal</h2>
-      <p>{{ getGoal() }}</p>
-      <p>{{ getGoal() }}</p>
-      <p><a v-bind:href="linkTest" target="_blank">Site google</a></p>
+    <section id="assignment">
+      <h2>Event Practice</h2>
+      <button v-on:click="showAlert">Show Alert</button>
+      <hr />
+      <input type="text" v-on:keydown="showText" />
+      <p>{{outputText}}</p>
+      <hr />
+      <input
+        type="text"
+        v-on:input="showText($event)"
+        v-on:keyup.enter="showTextEnter"
+      />
+      <p>{{outputTextEnter}}</p>
     </section>
   </body>
 </html>
