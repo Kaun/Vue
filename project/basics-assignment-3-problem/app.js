@@ -2,19 +2,14 @@ const app = Vue.createApp({
   data() {
     return {
       result: 0,
-      text: '',
-      subtext: '',
     }
   },
   watch: {
-    result(value) {
-      if (value < 37) {
-        this.subtext = 'Not there yet'
-      } else {
-        if (value > 37) {
-          this.subtext = 'Too much!'
-        }
-      }
+    result() {
+      that = this
+      setTimeout(function () {
+        that.result = 0
+      }, 5000)
     },
   },
   methods: {
@@ -22,7 +17,15 @@ const app = Vue.createApp({
       this.result += num
     },
   },
-  computed: {},
+  computed: {
+    resultField() {
+      return this.result === 37
+        ? this.result
+        : this.result < 37
+        ? this.result + ' ' + 'Not there yet'
+        : this.result + ' ' + 'Too much!'
+    },
+  },
 })
 
 app.mount('#assignment')
